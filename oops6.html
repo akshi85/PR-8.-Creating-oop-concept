@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <body>
+    <script>
+        class Restaurant {
+            constructor() {
+                this.menuItems = {};
+                this.ratings = [];
+            }
+
+            addItem(item, price) {
+                this.menuItems[item] = price;
+            }
+
+            removeItem(item) {
+                if (item in this.menuItems) {
+                    delete this.menuItems[item];
+                    return true;
+                }
+                return false;
+            }
+
+            addRating(rating) {
+                this.ratings.push(rating);
+            }
+
+            calculateAverageRating() {
+                if (this.ratings.length === 0) {
+                    return 0;
+                }
+                let sum = this.ratings.reduce((total, rating) => total + rating, 0);
+                return sum / this.ratings.length;
+            }
+        }
+        let myRestaurant = new Restaurant();
+
+        // Adding menu items
+        myRestaurant.addItem("Burger", 10);
+        myRestaurant.addItem("Pizza", 12);
+        myRestaurant.addItem("Salad", 8);
+
+        // Removing a menu item
+        myRestaurant.removeItem("Pizza");
+
+        // Adding ratings
+        myRestaurant.addRating(4.5);
+        myRestaurant.addRating(3.8);
+        myRestaurant.addRating(4.2);
+
+        console.log(myRestaurant.menuItems); 
+        console.log(myRestaurant.calculateAverageRating()); 
+
+    </script>
+</body>
+
+</html>

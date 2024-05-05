@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Employee {
+            constructor(name, salary, date) {
+                this.name = name;
+                this.salary = salary;
+                this.date = date;
+            }
+            yearofservice() {
+                let currentdate = new Date();
+                let date = new Date(this.date);
+                let time = currentdate - date;
+                let yearofservice = Math.floor(time / (1000 * 3600 * 24 * 365));
+                return yearofservice;
+
+                let name = ('${this.name}');
+                return name;
+
+                let salary = ('${this.salary}');
+                return salary;
+            }
+        }
+
+        let service = new Employee("akshita",50000,"29-10-2004");
+        console.log("your year of service:-",service.name,service.salary);
+    </script>
+</body>
+
+</html>
